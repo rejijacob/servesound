@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ServeSounds — Live Lesson (Static)</title>
+  <meta name="description" content="ServeSounds lesson page — fully static, Render-ready" />
+  <style>
+    :root{
+      --teal:#0f766e; --coral:#fb7185; --grey:#e5e7eb; --ink:#1f2937; --soft:#374151; --paper:#ffffff;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0;background:linear-gradient(#f0fdfa,#fff);color:#222;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+    .wrap{max-width:1120px;margin:0 auto;padding:16px}
+    .row{display:grid;grid-template-columns:1fr;gap:16px}
+    @media (min-width:1024px){.row{grid-template-columns:1fr 1fr 1fr}}
+    header{position:sticky;top:0;z-index:9;background:rgba(255,255,255,.85);backdrop-filter:blur(6px);border-bottom:1px solid #e5e7eb}
+    .hbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:14px;background:var(--teal);display:grid;place-items:center;box-shadow:inset 0 0 0 2px rgba(255,255,255,.25)}
+    .logo svg{width:24px;height:24px;fill:#fff}
+    h1{font-size:16px;margin:0;color:#111}
+    .muted{color:#6b7280;font-size:12px}
+    .badge{background:var(--teal);color:#fff;border-radius:999px;padding:6px 10px;font-size:12px}
+    button{cursor:pointer;border-radius:12px;border:1px solid var(--grey);background:#fff;padding:10px 14px}
+    button.primary{background:var(--teal);color:#fff;border-color:var(--teal)}
+    button.ghost{background:#fff;border-color:var(--grey)}
+    .card{border:1px solid var(--grey);background:#fff;border-radius:18px;box-shadow:0 1px 1px rgba(0,0,0,.02);padding:16px}
+    .title{display:flex;align-items:center;gap:8px;color:#111;font-weight:600}
+    .subtitle{color:#6b7280;font-size:12px;margin-top:2px}
+    .pill{display:inline-block;border-radius:999px; padding:6px 10px; font-size:12px; margin-right:6px; margin-bottom:6px}
+    .pill.teal{background:rgba(15,118,110,.1);color:#065f46;border:1px solid rgba(15,118,110,.2)}
+    .pill.coral{background:rgba(251,113,133,.12);color:#9f1239;border:1px solid rgba(251,113,133,.2)}
+    .pill.grey{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb}
+    .nudge{border-left:4px solid var(--coral);background:#fff1f2;color:#9f1239;padding:10px 12px;border-radius:0 12px 12px 0;font-size:13px}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid2 .cell{border:1px solid #e5e7eb;border-radius:12px;padding:10px;background:#fff;display:flex;align-items:center;justify-content:space-between}
+    .table{width:100%;border-collapse:collapse;font-size:14px}
+    .table th,.table td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left}
+    .progress{height:8px;background:#f3f4f6;border-radius:999px;overflow:hidden}
+    .progress > div{height:100%;background:var(--teal);width:0%}
+    .blocks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .blocks button{display:flex;justify-content:space-between;align-items:center}
+    footer{color:#6b7280;font-size:12px;margin:8px 0 40px}
+    .hidden{display:none}
+    /* little helpers */
+    .flex{display:flex;gap:8px;align-items:center}
+    .col{display:flex;flex-direction:column;gap:8px}
+    .num{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .pad{padding:4px 8px;border-radius:8px;border:1px solid #e5e7eb;background:#fff}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hbar">
+      <div class="brand">
+        <div class="logo" aria-label="ServeSounds">
+          <!-- music note icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l11-2v12"></path><circle cx="7" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </div>
+        <div>
+          <h1>ServeSounds — Live Lesson (Sample)</h1>
+          <div class="muted">Tutor: Liam • Student: 13-year-old • Friday, 15 August 2025 • 16:00–16:45</div>
+        </div>
+      </div>
+      <div class="flex">
+        <span class="badge">A1–B1 Focus</span>
+        <button class="ghost" onclick="window.print()">Export / Print</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="row">
+      <!-- Left column -->
+      <section class="card">
+        <div class="title">
+          <!-- brain icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4a3 3 0 0 1 3 3v1h1a3 3 0 0 1 0 6h-1v1a3 3 0 0 1-3 3"/><path d="M9 4a3 3 0 0 0-3 3v1H5a3 3 0 0 0 0 6h1v1a3 3 0 0 0 3 3"/><path d="M8 8h8"/><path d="M8 12h8"/></svg>
+          <div>
+            <div>Learner Snapshot</div>
+            <div class="subtitle">Quick context for today’s session.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:10px">
+          <span class="pill teal">Prefers sound-first</span>
+          <span class="pill coral">Backings boost motivation</span>
+          <span class="pill grey">Goal: clean chord swaps</span>
+        </div>
+
+        <div class="grid2" style="margin-top:12px">
+          <div>
+            <div class="muted" style="margin-bottom:4px">Mood check-in</div>
+            <div style="font-size:22px">🙂 → 😎</div>
+          </div>
+          <div>
+            <div class="muted" style="margin-bottom:4px">Confidence target (C0–C5)</div>
+            <div class="flex">
+              <input id="conf" type="range" min="0" max="5" step="1" value="2" oninput="setConf(this.value)" />
+              <span id="confBadge" class="pad">C2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid2" style="margin-top:10px">
+          <div class="cell"><span>ADHD</span><input type="checkbox" checked /></div>
+          <div class="cell"><span>Autism</span><input type="checkbox" checked /></div>
+          <div class="cell"><span>Dyslexia</span><input type="checkbox" /></div>
+          <div class="cell"><span>Anxiety</span><input type="checkbox" checked /></div>
+          <div class="cell"><span>FineMotor</span><input type="checkbox" /></div>
+          <div class="cell"><span>—</span><span class="muted">Toggle as needed</span></div>
+        </div>
+
+        <div class="nudge" style="margin-top:10px">
+          <strong>Adaptation tip:</strong> If attention dips, use 30-sec on / 10-sec off cycles for jams; show a 4-bar pattern card.
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="title">
+          <!-- pulse icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <div>
+            <div>Lesson Timeline</div>
+            <div class="subtitle">Follow the blocks. Tap a block to jump.</div>
+          </div>
+        </div>
+
+        <div class="flex" style="margin-top:8px">
+          <div class="num" id="clock" style="font-size:26px;width:92px;text-align:center">00:00</div>
+          <div class="flex">
+            <button class="primary" onclick="toggleTimer()" id="btnStart"><span id="btnStartTxt">Start</span></button>
+            <button class="ghost" onclick="resetTimer()">Reset</button>
+          </div>
+        </div>
+
+        <div class="progress" style="margin-top:8px"><div id="bar"></div></div>
+
+        <div class="blocks" style="margin-top:8px" id="blocks"></div>
+
+        <div class="nudge" style="margin-top:10px">
+          <strong>Keep it musical:</strong> Use a soft pad or drum loop at ~72–80 bpm to maintain flow and reduce silence.
+        </div>
+      </section>
+
+      <!-- Middle column -->
+      <section class="card">
+        <div class="title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22h11A2.5 2.5 0 0 0 20 19.5V6H4Z"/><path d="M4 6V4a2 2 0 0 1 2-2h10"/></svg>
+          <div>
+            <div>Warm-In: Interval Echo (2nds vs 3rds)</div>
+            <div class="subtitle">Objective: distinguish by ear, find on keys</div>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <!-- Interval cards -->
+          <svg viewBox="0 0 360 120" style="width:100%;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.03)">
+            <rect x="10" y="20" width="160" height="80" rx="14" fill="#fde68a" />
+            <text x="90" y="70" text-anchor="middle" font-family="Inter, system-ui" font-size="28" fill="#1f2937">2nd</text>
+            <rect x="190" y="20" width="160" height="80" rx="14" fill="#93c5fd" />
+            <text x="270" y="70" text-anchor="middle" font-family="Inter, system-ui" font-size="28" fill="#1f2937">3rd</text>
+          </svg>
+        </div>
+        <ol style="margin:10px 0 0 18px;font-size:14px;line-height:1.4">
+          <li>Play two notes up; learner holds up the correct colour card.</li>
+          <li>Learner finds the shape on the keyboard; swap roles.</li>
+          <li>4 rounds, quick wins; keep tempo steady with gentle tapping.</li>
+        </ol>
+        <div style="margin-top:10px">
+          <span class="pill teal">Time: 5 min</span>
+          <span class="pill coral">Confidence: Low</span>
+          <span class="pill grey">A1 Aural & Theory</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 3 9h11l3-9"/><path d="M4 13h15l-1.5 5h-12z"/></svg>
+          <div>
+            <div>Core Skill: Five-Finger & Reading Link</div>
+            <div class="subtitle">Objective: clean legato, link notation to shapes</div>
+          </div>
+        </div>
+        <div style="margin-top:10px">
+          <!-- Mini keyboard -->
+          <svg viewBox="0 0 480 120" style="width:100%;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.03)">
+            <!-- white keys -->
+            <g id="keys-white"></g>
+            <!-- black keys -->
+            <g id="keys-black"></g>
+            <text x="240" y="112" text-anchor="middle" font-family="Inter, system-ui" font-size="16" fill="#374151">
+              C–D–E (links to 2nds/3rds)
+            </text>
+          </svg>
+          <script>
+            // draw the keyboard highlights once
+            (function(){
+              const svg = document.currentScript.previousElementSibling;
+              const w = svg.querySelector('#keys-white');
+              const b = svg.querySelector('#keys-black');
+              const highlight = [0,2,4]; // C D E
+              for(let i=0;i<12;i++){
+                const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+                r.setAttribute('x', String(i*40)); r.setAttribute('y','0'); r.setAttribute('width','40'); r.setAttribute('height','120');
+                r.setAttribute('fill', highlight.includes(i)? '#d1fae5' : '#f9fafb'); r.setAttribute('stroke','#e5e7eb');
+                w.appendChild(r);
+              }
+              const blacks=[1,3,6,8,10];
+              blacks.forEach(i=>{
+                const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+                r.setAttribute('x', String(i*40-10)); r.setAttribute('y','0'); r.setAttribute('width','20'); r.setAttribute('height','72');
+                r.setAttribute('rx','4'); r.setAttribute('fill', highlight.includes(i)? '#fb7185' : '#111827');
+                b.appendChild(r);
+              });
+            })();
+          </script>
+        </div>
+        <ul style="margin:10px 0 0 18px;font-size:14px;line-height:1.4">
+          <li>LH holds 1–5; RH plays 1–2–3 legato; count 1–&–2–&.</li>
+          <li>Read two short note sets from staff; match to keyboard.</li>
+          <li>Micro-challenge: no breaks in RH; wrists soft and level.</li>
+        </ul>
+        <div style="margin-top:10px">
+          <span class="pill teal">Time: 12 min</span>
+          <span class="pill coral">Confidence: Low–Med</span>
+          <span class="pill grey">A1–A2 Technique & Reading</span>
+        </div>
+        <div class="nudge" style="margin-top:10px">Say what went well first: “That was a clean change to E!”</div>
+      </section>
+
+      <section class="card">
+        <div class="title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 7H9a4 4 0 0 0 0 8h8"/></svg>
+          <div>
+            <div>Creativity: Ambient Add9 Jam</div>
+            <div class="subtitle">Objective: keep pulse; create texture with sus/add9</div>
+          </div>
+        </div>
+        <div style="margin:10px 0">
+          <!-- Mini keyboard alt -->
+          <svg viewBox="0 0 480 120" style="width:100%;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.03)">
+            <g id="keys2-white"></g><g id="keys2-black"></g>
+            <text x="240" y="112" text-anchor="middle" font-family="Inter, system-ui" font-size="16" fill="#374151">RH 1–2–5 over LH 1–5 (add9 feel)</text>
+          </svg>
+          <script>
+            (function(){
+              const svg = document.currentScript.previousElementSibling;
+              const w = svg.querySelector('#keys2-white');
+              const b = svg.querySelector('#keys2-black');
+              const highlight = [0,2,4,7];
+              for(let i=0;i<12;i++){
+                const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+                r.setAttribute('x', String(i*40)); r.setAttribute('y','0'); r.setAttribute('width','40'); r.setAttribute('height','120');
+                r.setAttribute('fill', highlight.includes(i)? '#d1fae5' : '#f9fafb'); r.setAttribute('stroke','#e5e7eb');
+                w.appendChild(r);
+              }
+              const blacks=[1,3,6,8,10];
+              blacks.forEach(i=>{
+                const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+                r.setAttribute('x', String(i*40-10)); r.setAttribute('y','0'); r.setAttribute('width','20'); r.setAttribute('height','72');
+                r.setAttribute('rx','4'); r.setAttribute('fill', highlight.includes(i)? '#fb7185' : '#111827');
+                b.appendChild(r);
+              });
+            })();
+          </script>
+        </div>
+        <div class="flex">
+          <button class="primary">▶ Backing Pad (C major, 76 bpm)</button>
+          <button class="ghost">🔊 Metronome 76</button>
+        </div>
+        <ul style="margin:10px 0 0 18px;font-size:14px;line-height:1.4">
+          <li>Jam 16 bars on I–IV–V; swap one chord to sus2 or sus4.</li>
+          <li>Voice-lead back to I; record 20–30 s if confident.</li>
+        </ul>
+        <div style="margin-top:10px">
+          <span class="pill teal">Time: 8 min</span>
+          <span class="pill coral">Confidence: Medium</span>
+          <span class="pill grey">B1 Creativity</span>
+        </div>
+      </section>
+
+      <!-- Right column -->
+      <section class="card">
+        <div class="title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h3l3 10 4-18 3 8h4"/></svg>
+          <div>
+            <div>Repertoire: 1–4–5 Chorus (Swap to sus/add9)</div>
+            <div class="subtitle">Objective: 2 musical swaps without stopping</div>
+          </div>
+        </div>
+        <div class="grid2" style="margin-top:8px">
+          <div class="card" style="padding:12px">
+            <div class="muted" style="margin-bottom:6px">Plain</div>
+            <div>I – IV – V – I</div>
+          </div>
+          <div class="card" style="padding:12px;background:#fff1f2;border-color:#fecdd3">
+            <div style="color:#9f1239;margin-bottom:6px;font-weight:600">With swaps</div>
+            <div style="color:#374151">I(add9) – IV(sus2) – V(sus4) – I(add9)</div>
+          </div>
+        </div>
+        <div class="nudge" style="margin-top:10px">Use a <em>swap menu</em> card: sus2, sus4, add9. Choose one per phrase.</div>
+        <div style="margin-top:10px">
+          <span class="pill teal">Time: 12 min</span>
+          <span class="pill coral">Confidence: Med–High</span>
+          <span class="pill grey">B1–B2 Repertoire & Creativity</span>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+          <div>
+            <div>Confidence Event: 25-second Micro-record</div>
+            <div class="subtitle">Objective: one-take clip + positive reflection</div>
+          </div>
+        </div>
+        <!-- Confidence Ladder -->
+        <svg viewBox="0 0 600 80" style="width:100%;height:auto;border:1px solid #e5e7eb;border-radius:12px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.03);margin-top:10px" id="ladder">
+          <!-- steps injected by JS -->
+        </svg>
+        <div class="flex" style="margin-top:8px">
+          <button class="primary">📷 Record 25s</button>
+          <button class="ghost" title="Get consent first; max 40s; store securely; role-based access. Incident route available in Appendix E.">🛡️ Safeguarding</button>
+        </div>
+        <div style="margin-top:8px">
+          <label class="muted" for="selfnote">Learner self-note:</label>
+          <input id="selfnote" class="pad" placeholder="One thing I did well today was…" style="width:100%" />
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18"/><path d="M8 8h13"/><path d="M3 12h18"/><path d="M8 16h13"/></svg>
+          <div>
+            <div>Assign Plan (Home)</div>
+            <div class="subtitle">Daily bites: 15–18 minutes</div>
+          </div>
+        </div>
+        <table class="table" style="margin-top:8px">
+          <thead><tr><th>Area</th><th>Task</th><th>Minutes</th></tr></thead>
+          <tbody>
+            <tr><td>Core (40%)</td><td>RH legato 1–2–3 over LH 1–5; two staff patterns</td><td>6–7</td></tr>
+            <tr><td>Repertoire (30%)</td><td>1–4–5 chorus; one swap (sus2/sus4/add9)</td><td>5–6</td></tr>
+            <tr><td>Creativity (20%)</td><td>Ambient add9 jam over pad at 76 bpm</td><td>3–4</td></tr>
+            <tr><td>Confidence (10%)</td><td>One 25–30 s home clip by Friday</td><td>1–2</td></tr>
+          </tbody>
+        </table>
+        <div class="flex" style="margin-top:8px">
+          <button class="primary">✔ Save & Share to Parent</button>
+          <button class="ghost">＋ Add Resource</button>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div style="margin-top:16px;border-top:1px solid #e5e7eb;padding-top:10px">
+        <p><strong>IP & Licence:</strong> ServeSounds content is provided under a non-exclusive, non-transferable tutor licence and may be revoked for safeguarding or quality breaches. Refer to the full curriculum pack for terms.</p>
+        <p style="margin-top:6px">© ServeSounds (2025). All rights reserved.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // --- Timer & blocks ---
+    const blocks = [
+      { key: "Warm-In", mins: 5 },
+      { key: "Core Skill", mins: 12 },
+      { key: "Creativity", mins: 8 },
+      { key: "Repertoire", mins: 12 },
+      { key: "Confidence", mins: 4 },
+      { key: "Assign Plan", mins: 4 },
+    ];
+    let currentBlock = "Warm-In";
+    let running = false, t0 = 0, acc = 0, id = null;
+
+    function fmt(n){ return String(n).padStart(2,'0'); }
+    function tick(){
+      const now = Date.now();
+      const elapsed = running ? (acc + (now - t0)) : acc;
+      const s = Math.floor(elapsed/1000);
+      document.getElementById('clock').textContent = `${fmt(Math.floor(s/60))}:${fmt(s%60)}`;
+    }
+    function toggleTimer(){
+      const btn = document.getElementById('btnStartTxt');
+      if(!running){ running = true; t0 = Date.now(); id = setInterval(tick, 200); btn.textContent = 'Pause'; }
+      else{ running = false; acc += Date.now()-t0; clearInterval(id); id=null; btn.textContent = 'Start'; }
+      tick();
+    }
+    function resetTimer(){
+      running=false; acc=0; if(id){clearInterval(id); id=null;}
+      document.getElementById('btnStartTxt').textContent='Start'; tick();
+    }
+    function setConf(v){
+      document.getElementById('confBadge').textContent = 'C'+v;
+      drawLadder(Number(v));
+    }
+
+    function drawBlocks(){
+      const box = document.getElementById('blocks'); box.innerHTML='';
+      const total = blocks.reduce((a,b)=>a+b.mins,0);
+      const idx = blocks.findIndex(b=>b.key===currentBlock);
+      const done = blocks.slice(0,idx).reduce((a,b)=>a+b.mins,0);
+      document.getElementById('bar').style.width = (done/total*100)+'%';
+      blocks.forEach(b=>{
+        const btn = document.createElement('button');
+        btn.innerHTML = `<span>${b.key}</span><span class="pad">${b.mins} min</span>`;
+        if(b.key===currentBlock){ btn.classList.add('primary'); btn.style.color='#fff'; }
+        btn.onclick = ()=>{ currentBlock=b.key; drawBlocks(); };
+        box.appendChild(btn);
+      });
+    }
+
+    function drawLadder(level){
+      const svg = document.getElementById('ladder'); svg.innerHTML='';
+      const steps = ['C0','C1','C2','C3','C4','C5'];
+      steps.forEach((s,i)=>{
+        const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+        const x = 10 + i*96;
+        const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+        r.setAttribute('x',x); r.setAttribute('y',20); r.setAttribute('width',90); r.setAttribute('height',40); r.setAttribute('rx',10);
+        r.setAttribute('fill', i<=level ? '#0f766e' : '#e5e7eb');
+        const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+        t.setAttribute('x', x+45); t.setAttribute('y', 46); t.setAttribute('text-anchor','middle');
+        t.setAttribute('font-size','16'); t.setAttribute('font-family','Inter, system-ui'); t.setAttribute('fill', i<=level ? '#ecfeff' : '#374151');
+        t.textContent=s;
+        g.appendChild(r); g.appendChild(t); svg.appendChild(g);
+      });
+    }
+
+    // init
+    tick(); drawBlocks(); drawLadder(2);
+  </script>
+</body>
+</html>
+ß
